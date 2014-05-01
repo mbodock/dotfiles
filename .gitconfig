@@ -1,0 +1,21 @@
+[user]
+	name = Mbodock (Marcus Vinicius)
+	email = mbodock@gmail.com
+	colors = auto
+[color]
+	ui = true
+[alias]
+    s = status -sb
+	get = pull origin master --no-commit
+	c = commit -am
+	dc = diff --check
+    slog = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    remotes = remote -v
+    tags = tag -l
+    branches = branch -a
+[core]
+	editor = vim
+[diff]
+	external = /bin/diff.py
+[merge]
+	tool = meld
