@@ -9,6 +9,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 syntax enable
+set t_Co=256
+colorscheme koehler
 
 " Uses tab and shift+tab to change tabs
 map <Tab> :tabnext<cr>
@@ -36,19 +38,16 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 map 0 ^
 set splitright
 set splitbelow
-set t_Co=256
 set laststatus=2
 set background=dark
-colorscheme solarized
-set noshowmode
 
-" Powerline initialize
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-colorscheme solarized
+set noshowmode
 
 " bodocks =D
 nmap <leader>o :NERDTreeToggle<cr>
 
+" Vim-airline configs
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+" Removendo lag ao sair do modo de inserção
+set ttimeoutlen=50
