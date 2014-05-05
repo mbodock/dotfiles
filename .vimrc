@@ -46,6 +46,8 @@ set noshowmode
 " bodocks =D
 nmap <leader>o :NERDTreeToggle<cr>
 nmap <F3> :noh<cr>
+nmap <leader>k ddkkp
+nmap <leader>j ddp
 
 " Vim-airline configs
 let g:airline#extensions#tabline#enabled = 1
