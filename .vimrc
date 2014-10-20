@@ -87,3 +87,4 @@ noremap <Right> :echo "YOU NOOB!"<cr>
 
 " Multiple cursors
 let g:multi_cursor_exit_from_visual_mode = 1
+let g:multi_cursor_quit_key='<C-z>'
