@@ -146,3 +146,14 @@ PS1="\[$GREEN\]\t\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\w\[\033[m\]\[$MAGENT
 }
 
 export MOZILLA_FIVE_HOME=/usr/lib/mozilla
+
+
+# Test cordova
+export PATH=~/work/android/adt-bundle/sdk/platform-tools:$PATH
+export PATH=~/work/android/adt-bundle/sdk/tools:$PATH
+export ANDROID_HOME=/home/marcus/work/android/adt-bundle/sdk
+export ANDROID_TOOLS=/home/marcus/work/android/adt-bundle/sdk/tools
+export ANDROID_PLATFORM_TOOLS=/home/marcus/work/android/adt-bundle/sdk/platform-tools
+
+export JAVA_HOME=/home/marcus/work/java/jdk
+export ANT_HOME=/usr/bin
