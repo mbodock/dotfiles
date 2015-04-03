@@ -20,7 +20,7 @@ set CLASSPATH /home/marcus/work/.jdk/
 set TERM xterm-256color
 
 # Adicionando workon - Deve ser após modificar o path.
-. ~/scripts/virtualfish/virtual.fish
+. ~/work/fishenv/fishenv.fish
 
 
 # Alias
@@ -29,6 +29,7 @@ alias temp="watch -n,5 sensors"
 alias notas="vim ~/.notes"
 alias pyserver="python -m SimpleHTTPServer"
 alias vimdiff='vim (git s | tail -n +2| cut -d " " -f 3) -p'
+alias cv="xclip -se c"
 
 function fuck
     eval sudo $history[1]
@@ -37,13 +38,6 @@ end
 function mkcd
     mkdir $argv
     cd $argv
-end
-
-# Workon JF-server
-function jfstart
-    cd ~/work/django/JF-server/
-    . env/bin/activate.fish
-    cd justicafacil
 end
 
 # Configurar git no fish
