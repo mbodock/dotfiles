@@ -20,6 +20,30 @@ set shell=bash
 " Loads pathogen
 execute pathogen#infect()
 
+set wildmenu                    " shows menu when tab is pressed
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title                       " change the terminal's title
+set cursorline                  " Highline the current line
+
+" Swap implementations of ` and ' jump to markers
+" By default, ' jumps to the marked line, ` jumps to the marked line and
+" column, so swap them
+nnoremap ' `
+nnoremap ` '
+
+" Use shift-H and shift-L for move to beginning/end
+nnoremap H 0
+nnoremap L $
+
+" Strip all trailing whitespace from a file, using ,W
+nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+
+" Makes W write like w bot don't affect Word
+cnoreabbrev W w
+
+" Alias
+command Sortline call setline('.', join(sort(split(getline('.'), ' ')), " "))
+
 " Collors and Themes
 syntax on
 filetype plugin indent on
@@ -34,7 +58,7 @@ map <S-Tab> :tabprevious<cr>
 
 " Show numbers on vim
 set number
- 
+
 " Misc
 set directory=/tmp
 set exrc
@@ -42,6 +66,7 @@ set secure
 set expandtab
 set autoindent
 set shiftwidth=4
+set shiftround
 set tabstop=4
 set softtabstop=4
 set hlsearch
@@ -58,6 +83,18 @@ set laststatus=2
 set background=dark
 set mouse=a     " Enable mouse usage (all modes)
 set noshowmode
+
+" Always tell me the number of lines changed by a command
+set report=0
+
+" When wrapping text, if a line is so long that not all of it can be shown on
+" the screen, show as much as possible anyway; by default Vim fills the left
+" column with @ symbols instead, which I don't find very helpful
+set display=lastline
+
+" Don't wrap by default, but use \w to toggle it on or off quickly
+set nowrap
+nnoremap <leader>w :set wrap!<CR>
 
 " bodocks =D
 nmap <leader>o :NERDTreeToggle<cr>
@@ -88,3 +125,14 @@ noremap <Right> :echo "YOU NOOB!"<cr>
 " Multiple cursors
 let g:multi_cursor_exit_from_visual_mode = 1
 let g:multi_cursor_quit_key='<C-z>'
+
+" If a file named ~/.vimrc.local exists, source its configuration; this is
+" useful for defining filetype rules on systems which happen to have files of
+" a known type with atypical suffixes or locations
+if filereadable(glob('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
+
+
+" Snippets
+iabbrev eenc # encoding: utf-8
