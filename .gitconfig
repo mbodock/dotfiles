@@ -1,10 +1,15 @@
 [user]
     # Altere para seu username e email
-	name = Mbodock (Marcus Vinicius)
-	email = mbodock@gmail.com
+	name = Marcus Martins
+	email = marcus.martins@sisqualis.com.br
 	colors = auto
+
+[core]
+	editor = vim
+
 [color]
 	ui = true
+
 [alias]
     s = status -sb
 	get = pull origin master --no-commit
@@ -14,9 +19,18 @@
     remotes = remote -v
     tags = tag -l
     branches = branch -a
-[core]
-	editor = vim
-[diff]
-	external = /bin/diff.py
+	d = diff
+    who = shortlog -s -n --no-merges
+    news = shortlog --since=yesterday
+    uncommit = reset --soft HEAD^
+    chekcout = checkout
+    gi = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+
 [merge]
-	tool = meld
+	tool = vimdiff
+
+[mergetool "vimdiff"]
+	cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
+
+[push]
+	default = simple
