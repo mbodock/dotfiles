@@ -21,7 +21,7 @@ set shell=bash
 execute pathogen#infect()
 
 set wildmenu                    " shows menu when tab is pressed
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore=*/htmlcov/*,*/functional*,*.swp,*.bak,*.pyc,*.class
 set title                       " change the terminal's title
 set cursorline                  " Highline the current line
 
@@ -116,7 +116,7 @@ set ttimeoutlen=50
 " Vim-Flake8
 let g:flake8_max_line_length=99
 
-" Make things hard
+" Make things hard Thx João
 noremap <Up>    :echo "YOU NOOB!"<cr>
 noremap <Down>  :echo "YOU NOOB!"<cr>
 noremap <Left>  :echo "YOU NOOB!"<cr>
@@ -133,6 +133,8 @@ if filereadable(glob('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
+" Remove folding on plasticboy/vim-markdown
+let g:vim_markdown_folding_disabled=1
 
 " Snippets
 iabbrev eenc # encoding: utf-8
