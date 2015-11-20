@@ -21,7 +21,7 @@ set shell=bash
 execute pathogen#infect()
 
 set wildmenu                    " shows menu when tab is pressed
-set wildignore=*/htmlcov/*,*/functional*,*.swp,*.bak,*.pyc,*.class
+set wildignore=*/htmlcov/*,*/functional*,*.swp,*.bak,*.pyc,*.class,*/node_modules/*
 set title                       " change the terminal's title
 set cursorline                  " Highline the current line
 
@@ -76,6 +76,7 @@ set smartcase
 set backspace=indent,eol,start
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <C-c> <Esc><Esc>
 map 0 ^
 set splitright
 set splitbelow
@@ -138,3 +139,11 @@ let g:vim_markdown_folding_disabled=1
 
 " Snippets
 iabbrev eenc # encoding: utf-8
+
+" PyMode: https://github.com/klen/python-mode
+let g:pymode_options_max_line_length = 79
+let g:pymode_folding = 0
+let g:pymode_rope_rename_bind = '<C-h>rr'
+let g:pymode_rope_organize_imports_bind = '<C-h>ri'
+let g:pymode_rope_autoimport = 1
+let g:pymode_rope_autoimport_bind = '<C-h>ra'
