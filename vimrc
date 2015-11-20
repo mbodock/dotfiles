@@ -76,8 +76,8 @@ set number
 set directory=/tmp
 set exrc
 set secure
-set expandtab
-set autoindent
+set expandtab           " Tab inteligentes
+set autoindent          " Auto ident after LB
 set shiftwidth=4
 set shiftround
 set tabstop=4
@@ -85,7 +85,7 @@ set softtabstop=4
 set hlsearch
 set incsearch
 set ignorecase
-set smartcase
+set smartcase           "If has uppercase chars search for inogres ignnorecase
 set backspace=indent,eol,start
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -94,8 +94,7 @@ map 0 ^
 set splitright
 set splitbelow
 set laststatus=2
-set background=dark
-set mouse=a     " Enable mouse usage (all modes)
+set mouse=a
 set noshowmode
 
 " Always tell me the number of lines changed by a command
