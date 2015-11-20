@@ -10,7 +10,10 @@ get_git_config () {
 
 if [ -d ~/.dotfiles ]; then
     ln -fs ~/.dotfiles/bashrc ~/.bashrc
-    ln -fs ~/.dotfiles/config.fish ~/.config/fish/config.fish
+
+    if [-d ~/.config/fish ]; then
+        ln -fs ~/.dotfiles/config.fish ~/.config/fish/config.fish
+    fi
 
     get_git_config
     sed -i "s/name\s=\s.*$/name = $git_username/g" ~/.dotfiles/gitconfig
@@ -19,4 +22,13 @@ if [ -d ~/.dotfiles ]; then
 
     ln -fs ~/.dotfiles/tmux.conf ~/.tmux.conf
     ln -fs ~/.dotfiles/vimrc ~/.vimrc
+
+    if [ "$1" = "vundle" ]; then
+        mkdir -p ~/.vim/bundle/Vundle.vim
+        git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim
+
+        if [ "$2" = "plugins"]; then
+            vim +PluginInstall +qall
+        fi
+    fi
 fi
