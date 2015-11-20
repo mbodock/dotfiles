@@ -176,3 +176,6 @@ if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
         set laststatus=2
     endif
 endif
+
+" Fix text background color
+hi Normal ctermbg=NONE
