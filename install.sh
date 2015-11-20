@@ -27,7 +27,7 @@ if [ -d ~/.dotfiles ]; then
         mkdir -p ~/.vim/bundle/Vundle.vim
         git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim
 
-        if [ "$2" = "plugins"]; then
+        if [ "$2" = "plugins" ]; then
             vim +PluginInstall +qall
         fi
     fi

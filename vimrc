@@ -55,7 +55,7 @@ nnoremap ` '
 nnoremap H 0
 nnoremap L $
 
-" Strip all trailing whitespace from a file, using ,W
+" Strip all trailing whitespace from a file, using \W
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
 " Makes W write like w bot don't affect Word
@@ -64,13 +64,6 @@ cnoreabbrev W w
 " Alias
 command Sortline call setline('.', join(sort(split(getline('.'), ' ')), " "))
 
-" Collors and Themes
-syntax on
-filetype plugin indent on
-syntax enable
-set t_Co=256
-colorscheme solarized
-let g:solarized_termcolors=256
 
 " Uses tab and shift+tab to change tabs
 map <Tab> :tabnext<cr>
@@ -126,11 +119,6 @@ nmap <leader>j ddp
 "Jedi-Vim
 let g:jedi#popup_select_first = 0
 
-
-" Vim-airline configs
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
 " Removendo lag ao sair do modo de inserção
 set ttimeoutlen=50
 
@@ -167,3 +155,25 @@ let g:pymode_rope_rename_bind = '<C-h>rr'
 let g:pymode_rope_organize_imports_bind = '<C-h>ri'
 let g:pymode_rope_autoimport = 1
 let g:pymode_rope_autoimport_bind = '<C-h>ra'
+
+" Collors and Themes
+syntax on
+filetype plugin indent on
+syntax enable
+
+if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
+    if isdirectory(expand($HOME . '/.vim/bundle/vim-colors-solarized/'))
+        set background=dark
+        let g:solarized_termcolors=256
+        set t_Co=256
+        colorscheme solarized
+    endif
+
+    " Vim-airline configs
+    if isdirectory(expand($HOME . '/.vim/bundle/vim-airline/'))
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline_powerline_fonts = 1
+        let g:airline_theme = 'powerlineish'
+        set laststatus=2
+    endif
+endif
