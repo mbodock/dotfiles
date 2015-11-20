@@ -1,4 +1,8 @@
 [user]
+    # Altere para seu username e email
+	name = Marcus Filhao
+	email = coisa@email.com
+
 	colors = auto
 
 [core]
