@@ -4,6 +4,7 @@
 	email = marcus.martins@sisqualis.com.br
 
 	colors = auto
+	signingkey = 11336987
 
 [core]
 	editor = vim

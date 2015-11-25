@@ -16,25 +16,25 @@ set shell=bash
 
 "Plugin list to Vundle
 
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'dag/vim-fish'
+Plugin 'ervandew/supertab'
+Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'klen/python-mode'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'nvie/vim-flake8'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'tmhedberg/matchit'
-Plugin 'scrooloose/nerdtree'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
-Plugin 'godlygeek/tabular'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'dag/vim-fish'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tmhedberg/matchit'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 
 call vundle#end()
@@ -115,9 +115,6 @@ nmap <F3> :noh<cr>
 nmap <leader>k ddkkp
 nmap <leader>j ddp
 
-"Jedi-Vim
-let g:jedi#popup_select_first = 0
-
 " Removendo lag ao sair do modo de inserção
 set ttimeoutlen=50
 
@@ -148,7 +145,7 @@ let g:vim_markdown_folding_disabled=1
 iabbrev eenc # encoding: utf-8
 
 " PyMode: https://github.com/klen/python-mode
-let g:pymode_options_max_line_length = 79
+let g:pymode_options_max_line_length = 120
 let g:pymode_folding = 0
 let g:pymode_rope_rename_bind = '<C-h>rr'
 let g:pymode_rope_organize_imports_bind = '<C-h>ri'
