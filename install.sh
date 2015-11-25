@@ -11,7 +11,7 @@ get_git_config () {
 if [ -d ~/.dotfiles ]; then
     ln -fs ~/.dotfiles/bashrc ~/.bashrc
 
-    if [-d ~/.config/fish ]; then
+    if [ -d ~/.config/fish ]; then
         ln -fs ~/.dotfiles/config.fish ~/.config/fish/config.fish
     fi
 
