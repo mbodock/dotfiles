@@ -69,6 +69,9 @@ command Sortline call setline('.', join(sort(split(getline('.'), ' ')), " "))
 map <Tab> :tabnext<cr>
 map <S-Tab> :tabprevious<cr>
 
+" xmllit current document
+nnoremap <c-h><c-x> :silent %!xmllint --format -<cr>
+
 " Show numbers on vim
 set number
 
@@ -131,6 +134,10 @@ noremap <Right> :echo "YOU NOOB!"<cr>
 let g:multi_cursor_exit_from_visual_mode = 1
 let g:multi_cursor_quit_key='<C-z>'
 
+" Exibição de caracteres invisíveis
+map <silent> <C-m> :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+
 " If a file named ~/.vimrc.local exists, source its configuration; this is
 " useful for defining filetype rules on systems which happen to have files of
 " a known type with atypical suffixes or locations
@@ -170,6 +177,7 @@ if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
         let g:airline#extensions#tabline#enabled = 1
         let g:airline_powerline_fonts = 1
         let g:airline_theme = 'powerlineish'
+        let g:airline#extensions#branch#enabled = 1
         set laststatus=2
     endif
 endif
