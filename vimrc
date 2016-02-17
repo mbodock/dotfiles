@@ -100,6 +100,10 @@ set laststatus=2
 set mouse=a
 set noshowmode
 
+" Show invisible chars
+map <silent> <C-m> :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+
 " Always tell me the number of lines changed by a command
 set report=0
 
@@ -133,10 +137,6 @@ noremap <Right> :echo "YOU NOOB!"<cr>
 " Multiple cursors
 let g:multi_cursor_exit_from_visual_mode = 1
 let g:multi_cursor_quit_key='<C-z>'
-
-" Exibição de caracteres invisíveis
-map <silent> <C-m> :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
 
 " If a file named ~/.vimrc.local exists, source its configuration; this is
 " useful for defining filetype rules on systems which happen to have files of
