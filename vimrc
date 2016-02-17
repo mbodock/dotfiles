@@ -180,6 +180,29 @@ if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
         let g:airline#extensions#branch#enabled = 1
         set laststatus=2
     endif
+
+    if isdirectory(expand($HOME . '/.vim/bundle/vim-airline/'))
+        function! ToggleErrors()
+            if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
+                " No location/quickfix list shown, open syntastic error location panel
+                Errors
+            else
+                lclose
+            endif
+        endfunction
+        nnoremap <silent> <F6> :<C-u>call ToggleErrors()<CR>
+
+        set statusline+=%#warningmsg#
+        set statusline+=%{SyntasticStatuslineFlag()}
+        set statusline+=%*
+
+        let g:syntastic_always_populate_loc_list = 1
+        let g:syntastic_auto_loc_list = 0
+        let g:syntastic_check_on_wq = 0
+        let g:syntastic_enable_highlighting = 1
+        let g:syntastic_error_symbol = '✗'
+        let g:syntastic_warning_symbol = '⚠'
+    endi
 endif
 
 " Fix text background color
