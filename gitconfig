@@ -1,28 +1,28 @@
 [user]
     # Altere para seu username e email
-	name = Marcus Vinicius
-	email = mbodock@gmail.com
+    name = Marcus Vinicius
+    email = mbodock@gmail.com
 
-	colors = auto
-	signingkey = 11336987
+    colors = auto
+    signingkey = 11336987
 
 [core]
-	editor = vim
+    editor = vim
 
 [color]
-	ui = true
+    ui = true
 
 [alias]
     s = status -sb
-	get = pull origin master --no-commit
-	c = commit -am
-	dc = diff --check
+    get = pull origin master --no-commit
+    c = commit -am
+    dc = diff --check
     slog = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     remotes = remote -v
     tags = tag -l
     branches = branch -a
     bdiff = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	d = diff
+    d = diff
     who = shortlog -s -n --no-merges
     news = shortlog --since=yesterday
     uncommit = reset --soft HEAD^
@@ -30,10 +30,10 @@
     gi = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 
 [mergetool "vimdiff"]
-	cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
+    cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
 
 [push]
-	default = simple
+    default = simple
