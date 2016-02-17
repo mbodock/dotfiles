@@ -1,7 +1,7 @@
 [user]
     # Altere para seu username e email
 	name = Marcus Vinicius
-	email = marcus.martins@sisqualis.com.br
+	email = mbodock@gmail.com
 
 	colors = auto
 	signingkey = 11336987
@@ -21,6 +21,7 @@
     remotes = remote -v
     tags = tag -l
     branches = branch -a
+    bdiff = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	d = diff
     who = shortlog -s -n --no-merges
     news = shortlog --since=yesterday
