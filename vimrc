@@ -202,13 +202,18 @@ if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
         set statusline+=%{SyntasticStatuslineFlag()}
         set statusline+=%*
 
+        let g:syntastic_aggregate_errors = 1
         let g:syntastic_always_populate_loc_list = 1
-        let g:syntastic_auto_loc_list = 0
+        let g:syntastic_auto_loc_list = 2
         let g:syntastic_check_on_wq = 0
         let g:syntastic_enable_highlighting = 1
         let g:syntastic_error_symbol = '✗'
         let g:syntastic_warning_symbol = '⚠'
-    endi
+        let g:syntastic_python_checkers = ['flake8']
+    endif
+    if isdirectory(expand($HOME . '/.vim/davidhalter/jedi-vim/'))
+        let g:jedi#use_tabs_not_buffers = 1
+    endif
 endif
 
 " Fix text background color
