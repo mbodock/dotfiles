@@ -25,11 +25,12 @@ set TERM xterm-256color
 
 # Alias
 alias abre="exo-open"
-alias temp="watch -n,5 sensors"
+alias cv="xclip -se c"
 alias notas="vim ~/.notes"
 alias pyserver="python -m SimpleHTTPServer"
-alias vimdiff='vim (git s | tail -n +2| cut -d " " -f 3) -p'
-alias cv="xclip -se c"
+alias temp="watch -n,5 sensors"
+alias usage="du -sh * | sort -h | tac"
+alias vimdiff="vim (git s | egrep -e '^ M|^\?\?' | egrep -v -e '\/\$' | cut -d' ' -f 3) -p"
 
 function fuck
     eval sudo $history[1]
