@@ -16,26 +16,32 @@ set shell=bash
 
 "Plugin list to Vundle
 
+Plugin 'StanAngeloff/php.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'chase/vim-ansible-yaml'
 Plugin 'dag/vim-fish'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'klen/python-mode'
+" Plugin 'klen/python-mode'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'StanAngeloff/php.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tmhedberg/matchit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()
 filetype plugin indent on    " required
@@ -118,15 +124,15 @@ nnoremap <leader>w :set wrap!<CR>
 
 " bodocks =D
 nmap <leader>o :NERDTreeToggle<cr>
+nmap <leader>O :NERDTreeTabsToggle<cr>
 nmap <F3> :noh<cr>
 nmap <leader>k ddkkp
 nmap <leader>j ddp
+nmap <F8> :lnext<cr>
 
 " Removendo lag ao sair do modo de inserção
 set ttimeoutlen=50
 
-" Vim-Flake8
-let g:flake8_max_line_length=99
 
 " Make things hard Thx João
 noremap <Up>    :echo "YOU NOOB!"<cr>
@@ -152,7 +158,7 @@ let g:vim_markdown_folding_disabled=1
 iabbrev eenc # encoding: utf-8
 
 " PyMode: https://github.com/klen/python-mode
-let g:pymode_options_max_line_length = 120
+let g:pymode_options_max_line_length = 100
 let g:pymode_folding = 0
 let g:pymode_rope_rename_bind = '<C-h>rr'
 let g:pymode_rope_organize_imports_bind = '<C-h>ri'
