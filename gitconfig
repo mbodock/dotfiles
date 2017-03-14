@@ -4,7 +4,7 @@
     email = mbodock@gmail.com
 
     colors = auto
-    signingkey = 11336987
+    signingkey = 28EF91D5
 
 [core]
     editor = vim
@@ -37,3 +37,8 @@
 
 [push]
     default = simple
+
+[grep]
+  break = true
+  heading = true
+  lineNumber = true
