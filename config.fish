@@ -30,7 +30,7 @@ alias notas="vim ~/.notes"
 alias pyserver="python -m SimpleHTTPServer"
 alias temp="watch -n,5 sensors"
 alias usage="du -sh * | sort -h | tac"
-alias vimdiff="vim (git s | egrep -e '^ M|^\?\?' | egrep -v -e '\/\$' | cut -d' ' -f 3) -p"
+alias vimdiff="vim (git s | egrep -e '^ M|^\?\?' | egrep -v -e '\/\$' | sed -r 's/\?\?/ M/g' | cut -d' ' -f 3) -p"
 
 function fuck
     eval sudo $history[1]
