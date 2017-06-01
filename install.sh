@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 get_git_config () {
     echo "Configurando o Git.."
