@@ -17,6 +17,7 @@ set shell=bash
 "Plugin list to Vundle
 
 Plugin 'StanAngeloff/php.vim'
+Plugin 'SirVer/ultisnips'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
@@ -25,6 +26,7 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'dag/vim-fish'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
+Plugin 'honza/vim-snippets'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
@@ -213,6 +215,11 @@ if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
     endif
     if isdirectory(expand($HOME . '/.vim/davidhalter/jedi-vim/'))
         let g:jedi#use_tabs_not_buffers = 1
+    endif
+
+    if isdirectory(expand($HOME . '/.vim/bundle/ultisnips/'))
+        let g:UltiSnipsExpandTrigger="<c-k>"
+        let g:UltiSnipsJumpForwardTrigger="<c-l>"
     endif
 endif
 
