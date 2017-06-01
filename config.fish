@@ -2,6 +2,7 @@
 # Ajustes de path
 set PATH ~/bin/ $PATH
 set PATH ~/scripts/ $PATH
+set PATH ~/Programs/ $PATH
 
 # Incluindo SDK do android
 set PATH ~/work/.android-sdk/platform-tools $PATH
@@ -18,6 +19,11 @@ set CLASSPATH /home/marcus/work/.jdk/
 
 # Configurando o terminal para 256 cores
 set TERM xterm-256color
+
+# Desligando Pycache
+set PYTHONDONTWRITEBYTECODE 1
+# Warnings DBUS
+set NO_AT_BRIDGE 1
 
 # Adicionando workon - Deve ser após modificar o path.
 . ~/work/fishenv/fishenv.fish
