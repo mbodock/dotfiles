@@ -29,7 +29,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 " Plugin 'klen/python-mode'
 Plugin 'leafgarland/typescript-vim'
@@ -44,7 +44,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'davidhalter/jedi-vim'
-
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'terryma/vim-expand-region'
+Plugin 'tpope/vim-unimpaired'
 call vundle#end()
 filetype plugin indent on    " required
 
