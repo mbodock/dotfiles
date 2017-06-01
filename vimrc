@@ -55,6 +55,8 @@ set wildmenu                    " shows menu when tab is pressed
 set wildignore=*/htmlcov/*,*/functional*,*.swp,*.bak,*.pyc,*.class,*/node_modules/*
 set title                       " change the terminal's title
 set cursorline                  " Highline the current line
+set cc=80
+set encoding=utf8
 
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and
@@ -113,7 +115,7 @@ set noshowmode
 
 " Show invisible chars
 map <silent> <C-m> :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,space:·,eol:¬
 
 " Always tell me the number of lines changed by a command
 set report=0
@@ -139,11 +141,11 @@ nmap <F8> :lnext<cr>
 set ttimeoutlen=50
 
 
-" Make things hard Thx João
-noremap <Up>    :echo "YOU NOOB!"<cr>
-noremap <Down>  :echo "YOU NOOB!"<cr>
-noremap <Left>  :echo "YOU NOOB!"<cr>
-noremap <Right> :echo "YOU NOOB!"<cr>
+" Disable arrow movement, resize splits instead.
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
 
 " Multiple cursors
 let g:multi_cursor_exit_from_visual_mode = 1
@@ -216,8 +218,9 @@ if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
         let g:syntastic_warning_symbol = '⚠'
         let g:syntastic_python_checkers = ['flake8']
     endif
-    if isdirectory(expand($HOME . '/.vim/davidhalter/jedi-vim/'))
+    if isdirectory(expand($HOME . '/.vim/bundle/jedi-vim/'))
         let g:jedi#use_tabs_not_buffers = 1
+        let g:jedi#show_call_signatures = 2
     endif
 
     if isdirectory(expand($HOME . '/.vim/bundle/ultisnips/'))
