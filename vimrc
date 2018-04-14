@@ -57,7 +57,7 @@ call vundle#end()
 filetype plugin indent on    " required
 
 set wildmenu                    " shows menu when tab is pressed
-set wildignore=*/htmlcov/*,*/functional*,*.swp,*.bak,*.pyc,*.class,*/node_modules/*
+set wildignore=*/htmlcov/*,*/functional*,*.swp,*.bak,*.pyc,*.class,*/node_modules/*,*/bower_components/*
 set title                       " change the terminal's title
 set cursorline                  " Highline the current line
 set cc=80
