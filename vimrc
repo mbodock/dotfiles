@@ -16,6 +16,7 @@ set shell=bash
 
 "Plugin list to Vundle
 
+Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -23,6 +24,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'dkprice/vim-easygrep'
 Plugin 'dag/vim-fish'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
@@ -34,6 +36,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 " Plugin 'klen/python-mode'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'nvie/vim-flake8'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
@@ -42,12 +45,14 @@ Plugin 'tmhedberg/matchit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'w0rp/ale'
+
 call vundle#end()
 filetype plugin indent on    " required
 
