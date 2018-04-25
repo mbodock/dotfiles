@@ -26,7 +26,7 @@ set PYTHONDONTWRITEBYTECODE 1
 set NO_AT_BRIDGE 1
 
 # Adicionando workon - Deve ser após modificar o path.
-. ~/work/fishenv/fishenv.fish
+. ~/bin/fishenv/fishenv.fish
 
 
 # Alias
