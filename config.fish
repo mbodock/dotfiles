@@ -1,8 +1,10 @@
 # filelocation: ~/.config/fish/
 # Ajustes de path
 set PATH ~/bin/ $PATH
+set PATH ~/.cargo/bin/ $PATH
 set PATH ~/scripts/ $PATH
 set PATH ~/Programs/ $PATH
+set PATH ./node_modules/ $PATH
 
 # Incluindo SDK do android
 set PATH ~/work/.android-sdk/platform-tools $PATH
@@ -69,6 +71,12 @@ function fish_prompt
     printf '%s@%s %s%s%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
   end
 end
+
+
+# TurnOn pyenv
+set -x PATH "/home/mbodock/.pyenv/bin" $PATH
+status --is-interactive; and . (pyenv init -|psub)
+status --is-interactive; and . (pyenv virtualenv-init -|psub)
 
 # Por fim abre o tmux
 # opção -2 para abrir em 256 cores
