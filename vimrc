@@ -232,7 +232,20 @@ if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
         let g:UltiSnipsExpandTrigger="<c-k>"
         let g:UltiSnipsJumpForwardTrigger="<c-l>"
     endif
+    if isdirectory(expand($HOME . '/.vim/bundle/rainbow_parentheses.vim/'))
+        au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
+    endif
 endif
 
 " Fix text background color
 hi Normal ctermbg=NONE
+
+
+" Config for JS
+autocmd FileType js setlocal ts=2 sts=2 sw=2
+autocmd FileType jsx setlocal ts=2 sts=2 sw=2
+autocmd FileType html setlocal ts=2 sts=2 sw=2
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
