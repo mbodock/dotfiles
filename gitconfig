@@ -42,3 +42,5 @@
   break = true
   heading = true
   lineNumber = true
+[log]
+	mailmap = true

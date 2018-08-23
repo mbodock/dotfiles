@@ -14,6 +14,11 @@ set ANDROID_HOME /home/marcus/work/.android-sdk/
 set ANDROID_TOOLS /home/marcus/work/.android-sdk/
 set ANDROID_PLATFORM_TOOLS /home/marcus/work/.android-sdk/
 
+
+# Incluindo path do PyEnv
+set PYENV_ROOT "$HOME/.pyenv"
+set PATH "$PYENV_ROOT/bin" $PATH
+
 set PATH ~/work/.jdk/bin/ $PATH
 set JAVA_HOME /home/marcus/work/.jdk/
 set ANT_HOME /usr/bin/
@@ -72,9 +77,7 @@ function fish_prompt
   end
 end
 
-
 # TurnOn pyenv
-set -x PATH "/home/mbodock/.pyenv/bin" $PATH
 status --is-interactive; and . (pyenv init -|psub)
 status --is-interactive; and . (pyenv virtualenv-init -|psub)
 
