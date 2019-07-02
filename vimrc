@@ -222,6 +222,12 @@ if isdirectory(expand($HOME . '/.vim/plugged/'))
         let g:go_fmt_fail_silently = 1
     endif
 endif
+
+
+" Use The Silver Searcher over grep, iff possible
+if executable('ag')
+   " Use ag over grep
+   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
 " Fix text background color
