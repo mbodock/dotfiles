@@ -108,6 +108,8 @@ set splitbelow
 set laststatus=2
 set mouse=a
 set noshowmode
+nnoremap / /\v
+vnoremap / /\v
 
 " Show invisible chars
 map <silent> <C-m> :set list!<CR>
