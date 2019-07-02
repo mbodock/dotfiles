@@ -207,11 +207,56 @@ export MOZILLA_FIVE_HOME=/usr/lib/mozilla
 
 
 # Test cordova
-export PATH=~/work/android/adt-bundle/sdk/platform-tools:$PATH
-export PATH=~/work/android/adt-bundle/sdk/tools:$PATH
-export ANDROID_HOME=/home/marcus/work/android/adt-bundle/sdk
-export ANDROID_TOOLS=/home/marcus/work/android/adt-bundle/sdk/tools
-export ANDROID_PLATFORM_TOOLS=/home/marcus/work/android/adt-bundle/sdk/platform-tools
+if [[ -d "$HOME/work/android/" ]]; then
+    export PATH=~/work/android/adt-bundle/sdk/platform-tools:$PATH
+    export PATH=~/work/android/adt-bundle/sdk/tools:$PATH
+    export ANDROID_HOME=/home/marcus/work/android/adt-bundle/sdk
+    export ANDROID_TOOLS=/home/marcus/work/android/adt-bundle/sdk/tools
+    export ANDROID_PLATFORM_TOOLS=/home/marcus/work/android/adt-bundle/sdk/platform-tools
 
-export JAVA_HOME=/home/marcus/work/java/jdk
-export ANT_HOME=/usr/bin
+    export JAVA_HOME=/home/marcus/work/java/jdk
+    export ANT_HOME=/usr/bin
+fi
+
+if [[ -d "$HOME/go/" ]]; then
+    export PATH="$HOME/go/bin/:$PATH"
+fi
+
+if [[ -d "/usr/local/opt/coreutils" ]]; then
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+fi
+
+
+# Work/MAC Stuff
+
+if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    . "$(brew --prefix)/etc/bash_completion"
+fi
+
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
+export PATH=$PATH:/Users/mmartins/Library/Python/3.7/bin
+export PATH="/usr/local/sbin:$PATH"  # brew stuff in sbin
+
+# PSQL  (brew install libpq)
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/libpq/lib"
+export CPPFLAGS="-I/usr/local/opt/libpq/include"
+
+# Vi mode for interactive terminal:
+if [[ $- == *i* ]]; then
+    bind -m vi-insert '\C-l':clear-screen
+    set -o vi
+fi
+
+# fzf should be configured after vi mode:
+if [[ -f "$HOME/.fzf.bash" ]]; then
+    # shellcheck source=/dev/null
+    source "$HOME/.fzf.bash"
+    if hash ag 2> /dev/null; then
+        export FZF_DEFAULT_COMMAND='ag -g ""'
+        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    fi
+    export FZF_DEFAULT_OPTS="--height 100%"
+    export FZF_CTRL_T_OPTS="--preview 'head -100 {}'"
+fi
