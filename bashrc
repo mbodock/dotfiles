@@ -195,12 +195,12 @@ export PS1="\u@\h:\w \`parse_git_branch\`\`nonzero_return\`\\$ "
         return 1
     }
 
-    while [ $hops -gt 0 ] ; do
+    while [ "$hops" -gt 0 ] ; do
         dest="${dest}../"
-        let 'hops--'
+        (('hops--'))
     done
 
-    cd $dest
+    cd $dest || exit
 }
 
 export MOZILLA_FIVE_HOME=/usr/lib/mozilla
