@@ -1,60 +1,51 @@
-" Required by Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-" Set bash as default shell in vim
-" Needed if you uses fish as dafult shell
+set nocompatible
 set shell=bash
 
-"Plugin list to Vundle
+"Plugin list to Plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin()
 
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'dkprice/vim-easygrep'
-Plugin 'dag/vim-fish'
-Plugin 'ervandew/supertab'
-Plugin 'godlygeek/tabular'
-Plugin 'honza/vim-snippets'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'kien/rainbow_parentheses.vim'
-" Plugin 'klen/python-mode'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'nvie/vim-flake8'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'scrooloose/nerdtree'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tmhedberg/matchit'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'vim-syntastic/syntastic'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'terryma/vim-expand-region'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'w0rp/ale'
 
-call vundle#end()
-filetype plugin indent on    " required
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Shows git marks on numbers panel
+Plug 'airblade/vim-gitgutter'
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'chase/vim-ansible-yaml'
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Python completion
+Plug 'davidhalter/jedi-vim'
+
+Plug 'ervandew/supertab'
+Plug 'fatih/vim-go'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kien/rainbow_parentheses.vim'
+" Plug 'klen/python-mode'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'nvie/vim-flake8'
+Plug 'plasticboy/vim-markdown'
+Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-expand-region'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tmhedberg/matchit'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
+call plug#end()
 
 set wildmenu                    " shows menu when tab is pressed
 set wildignore=*/htmlcov/*,*/functional*,*.swp,*.bak,*.pyc,*.class,*/node_modules/*,*/bower_components/*
@@ -177,21 +168,17 @@ let g:pymode_rope_organize_imports_bind = '<C-h>ri'
 let g:pymode_rope_autoimport = 1
 let g:pymode_rope_autoimport_bind = '<C-h>ra'
 
-" Collors and Themes
-syntax on
-filetype plugin indent on
-syntax enable
 
-if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
-    if isdirectory(expand($HOME . '/.vim/bundle/vim-colors-solarized/'))
-        set background=dark
-        let g:solarized_termcolors=256
-        set t_Co=256
-        colorscheme solarized
-    endif
+if isdirectory(expand($HOME . '/.vim/plugged/'))
+     if isdirectory(expand($HOME . '/.vim/plugged/vim-colors-solarized/'))
+         set background=dark
+         let g:solarized_termcolors=256
+         set t_Co=256
+         colorscheme solarized
+     endif
 
     " Vim-airline configs
-    if isdirectory(expand($HOME . '/.vim/bundle/vim-airline/'))
+    if isdirectory(expand($HOME . '/.vim/plugged/vim-airline/'))
         let g:airline#extensions#tabline#enabled = 1
         let g:airline_powerline_fonts = 1
         let g:airline_theme = 'powerlineish'
@@ -199,16 +186,7 @@ if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
         set laststatus=2
     endif
 
-    if isdirectory(expand($HOME . '/.vim/bundle/vim-airline/'))
-        function! ToggleErrors()
-            if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
-                " No location/quickfix list shown, open syntastic error location panel
-                Errors
-            else
-                lclose
-            endif
-        endfunction
-        nnoremap <silent> <F6> :<C-u>call ToggleErrors()<CR>
+    if isdirectory(expand($HOME . '/.vim/plugged/vim-airline/'))
 
         set statusline+=%#warningmsg#
         set statusline+=%{SyntasticStatuslineFlag()}
@@ -223,21 +201,25 @@ if isdirectory(expand($HOME . '/.vim/bundle/Vundle.vim/'))
         let g:syntastic_warning_symbol = '⚠'
         let g:syntastic_python_checkers = ['flake8']
     endif
-    if isdirectory(expand($HOME . '/.vim/bundle/jedi-vim/'))
+    if isdirectory(expand($HOME . '/.vim/plugged/jedi-vim/'))
         let g:jedi#use_tabs_not_buffers = 1
         let g:jedi#show_call_signatures = 2
     endif
 
-    if isdirectory(expand($HOME . '/.vim/bundle/ultisnips/'))
+    if isdirectory(expand($HOME . '/.vim/plugged/ultisnips/'))
         let g:UltiSnipsExpandTrigger="<c-k>"
         let g:UltiSnipsJumpForwardTrigger="<c-l>"
     endif
-    if isdirectory(expand($HOME . '/.vim/bundle/rainbow_parentheses.vim/'))
+    if isdirectory(expand($HOME . '/.vim/plugged/rainbow_parentheses.vim/'))
         au VimEnter * RainbowParenthesesToggle
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
     endif
+    if isdirectory(expand($HOME . '/.vim/plugged/vim-go/'))
+        let g:go_fmt_fail_silently = 1
+    endif
+endif
 endif
 
 " Fix text background color
