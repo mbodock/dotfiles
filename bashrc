@@ -72,25 +72,26 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-    alias lsd='tree -L 1 -d'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-    alias usage='du -h -d 1'
+
+# Remember to install coreutils on mac!
+
+if hash lsd 2>/dev/null; then
+    alias ls='lsd -l'
 fi
+
+
+#alias dir='dir --color=auto'
+#alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias usage='du -h -d 1'
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias get='git pull origin master --no-commit'
-alias phpunit="phpunit --colors"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
