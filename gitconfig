@@ -1,10 +1,9 @@
 [user]
     # Altere para seu username e email
-    name = Marcus Vinicius (Mbodock)
+    name = Marcus Martins
     email = mbodock@gmail.com
 
     colors = auto
-    signingkey = 28EF91D5
 
 [core]
     editor = vim
@@ -43,4 +42,4 @@
   heading = true
   lineNumber = true
 [log]
-	mailmap = true
+  mailmap = true
