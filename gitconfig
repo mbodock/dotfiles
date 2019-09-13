@@ -17,7 +17,7 @@
     get = pull origin master --no-commit
     c = commit -am
     dc = diff --check
-    slog = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    slog = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     remotes = remote -v
     tags = tag -l
     branches = branch -a
