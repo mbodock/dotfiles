@@ -234,6 +234,8 @@ fi
 
 # Work/MAC Stuff
 
+alias pvw='qlmanage -p'
+
 if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
     . "$(brew --prefix)/etc/bash_completion"
 fi
@@ -263,5 +265,7 @@ if [[ -f "$HOME/.fzf.bash" ]]; then
         export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     fi
     export FZF_DEFAULT_OPTS="--height 100%"
-    export FZF_CTRL_T_OPTS="--preview 'head -100 {}'"
+    export FZF_CTRL_T_OPTS="--preview '(bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"
 fi
+
+export LC_ALL="en_US.UTF-8"
