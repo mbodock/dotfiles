@@ -227,7 +227,8 @@ if [[ -d "$HOME/go/" ]]; then
 fi
 
 if [[ -d "/usr/local/opt/coreutils" ]]; then
-    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="/usr/local/opt/curl/bin:$PATH"
 fi
 
 
