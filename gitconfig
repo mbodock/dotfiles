@@ -43,3 +43,7 @@
   lineNumber = true
 [log]
   mailmap = true
+
+# Work configs
+[includeIf "gitdir:/Users/mmartins/work/"]
+    path = /Users/mmartins/.gitconfig-work
