@@ -80,7 +80,7 @@ esac
 # Remember to install coreutils on mac!
 
 if hash lsd 2>/dev/null; then
-    alias ls='lsd -l'
+    alias ls='lsd'
 fi
 
 
@@ -94,7 +94,7 @@ alias usage='du -h -d 1'
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='lsd -F'
 alias get='git pull origin master --no-commit'
 
 # Add an "alert" alias for long running commands.  Use like so:
