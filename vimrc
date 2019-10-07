@@ -45,6 +45,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
+
 call plug#end()
 
 set wildmenu                    " shows menu when tab is pressed
