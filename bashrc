@@ -255,4 +255,8 @@ if [[ -f "$HOME/.fzf.bash" ]]; then
     export FZF_CTRL_T_OPTS="--preview '(bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"
 fi
 
+if [[ -d "$HOME/work/" ]]; then
+    source "$HOME/work/.bashrc"
+fi
+
 export LC_ALL="en_US.UTF-8"
