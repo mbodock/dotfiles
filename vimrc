@@ -25,7 +25,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'davidhalter/jedi-vim'
 
 Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries'}
+Plug 'mbodock/molokai'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -35,7 +36,7 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'nvie/vim-flake8'
 Plug 'plasticboy/vim-markdown'
 Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmhedberg/matchit'
@@ -221,7 +222,44 @@ if isdirectory(expand($HOME . '/.vim/plugged/'))
     endif
     if isdirectory(expand($HOME . '/.vim/plugged/vim-go/'))
         let g:go_fmt_fail_silently = 1
+        let g:go_def_mode='gopls'
+        let g:go_info_mode='gopls'
+        let g:go_auto_type_info = 1
+        let g:go_textobj_include_function_doc = 0
+
+        let g:go_highlight_types = 1
+        let g:go_highlight_fields = 1
+        let g:go_highlight_function_parameters = 1
+        let g:go_highlight_function_calls = 0
+        let g:go_highlight_functions = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_extra_types = 1
+        let g:go_highlight_build_constraints = 1
+
+        let g:go_highlight_string_spellcheck = 1
+        let g:go_highlight_format_strings = 1
+
+        nnoremap <leader>i :GoSameIdsToggle<cr>
     endif
+    if isdirectory(expand($HOME . '/.vim/plugged/molokai'))
+        let g:rehash256 = 1
+        let g:molokai_original = 1
+        autocmd BufEnter *.go colorscheme molokai
+    endif
+
+
+    if isdirectory(expand($HOME . '/.vim/plugged/ale/'))
+        let g:ale_linters = {
+        \    'go': ['gopls'],
+        \}
+    endif
+
+
+    if isdirectory(expand($HOME . '/.vim/plugged/supertab/'))
+        let g:SuperTabDefaultCompletionType = "context"
+        let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+    endif
+
 endif
 
 
