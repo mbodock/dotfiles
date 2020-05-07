@@ -1,41 +1,45 @@
 [user]
-    # Altere para seu username e email
-    name = Marcus Martins
-    email = mbodock@gmail.com
+  # Altere para seu username e email
+  name = Marcus Martins
+  email = mbodock@gmail.com
 
-    colors = auto
+  colors = auto
 
 [core]
-    editor = vim
+  editor = vim
+  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+
+[interactive]
+  diffFilter = delta --color-only
 
 [color]
-    ui = true
+  ui = true
 
 [alias]
-    s = status -sb
-    get = pull origin master --no-commit
-    c = commit -am
-    dc = diff --check
-    slog = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    remotes = remote -v
-    tags = tag -l
-    branches = branch -a
-    bdiff = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    d = diff
-    who = shortlog -s -n --no-merges
-    news = shortlog --since=yesterday
-    uncommit = reset --soft HEAD^
-    chekcout = checkout
-    gi = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+  s = status -sb
+  get = pull origin master --no-commit
+  c = commit -am
+  dc = diff --check
+  slog = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  remotes = remote -v
+  tags = tag -l
+  branches = branch -a
+  bdiff = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  d = diff
+  who = shortlog -s -n --no-merges
+  news = shortlog --since=yesterday
+  uncommit = reset --soft HEAD^
+  chekcout = checkout
+  gi = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 
 [merge]
-    tool = vimdiff
+  tool = vimdiff
 
 [mergetool "vimdiff"]
-    cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
+  cmd = vim -d "$LOCAL" "$MERGED" "$REMOTE"
 
 [push]
-    default = simple
+  default = simple
 
 [grep]
   break = true
@@ -46,4 +50,7 @@
 
 # Work configs
 [includeIf "gitdir:/Users/mmartins/work/"]
-    path = /Users/mmartins/.gitconfig-work
+  path = /Users/mmartins/.gitconfig-work
+
+[url "git@github.bus.zalan.do:"]
+  insteadOf = https://github.bus.zalan.do
