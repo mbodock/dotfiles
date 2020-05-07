@@ -21,6 +21,12 @@
   c = commit -am
   dc = diff --check
   slog = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  b = "for-each-ref --format='%(if)%(HEAD)%(then)*%(else) %(end)\
+%(color:red normal) %(objectname:short) %(color:white no-bold normal)- \
+%(if:equals=refs/remotes)%(refname:rstrip=2)%(then)%(color:red bold normal)%(else)%(color:green bold normal)%(end)\
+%(refname:short) %(if)%(upstream)%(then)%(color:white no-bold normal)-> %(color:red normal)%(upstream:short) %(end)\
+%(color:green no-bold normal)(%(authordate:relative)) %(color:blue bold normal)<%(authorname)>'\
+ --sort='authordate' refs/heads refs/remotes"
   remotes = remote -v
   tags = tag -l
   branches = branch -a
