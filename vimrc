@@ -55,6 +55,7 @@ set title                       " change the terminal's title
 set cursorline                  " Highline the current line
 set cc=80
 set encoding=utf8
+set showtabline=1  " only show tablines with two or more tabs
 
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and
@@ -108,14 +109,14 @@ map 0 ^
 set splitright
 set splitbelow
 set laststatus=2
-set mouse=a
+" set mouse=a
 set noshowmode
 nnoremap / /\v
 vnoremap / /\v
 
 " Show invisible chars
-map <silent> <C-m> :set list!<CR>
-set listchars=tab:▸\ ,space:·,eol:¬
+" map <silent> <C-m> :set list!<CR>
+" set listchars=tab:▸\ ,space:·,eol:¬
 
 " Always tell me the number of lines changed by a command
 set report=0
@@ -178,7 +179,8 @@ if isdirectory(expand($HOME . '/.vim/plugged/'))
          set background=dark
          let g:solarized_termcolors=256
          set t_Co=256
-         colorscheme solarized
+         " Disabled to test molokai
+         " colorscheme solarized
      endif
 
     " Vim-airline configs
@@ -240,17 +242,18 @@ if isdirectory(expand($HOME . '/.vim/plugged/'))
         let g:go_highlight_format_strings = 1
 
         nnoremap <leader>i :GoSameIdsToggle<cr>
+        nnoremap <leader>r :GoRename<cr>
     endif
     if isdirectory(expand($HOME . '/.vim/plugged/molokai'))
         let g:rehash256 = 1
         let g:molokai_original = 1
-        autocmd BufEnter *.go colorscheme molokai
+        colorscheme molokai
     endif
 
 
     if isdirectory(expand($HOME . '/.vim/plugged/ale/'))
         let g:ale_linters = {
-        \    'go': ['gopls'],
+        \    'go': ['gopls', 'golint'],
         \}
     endif
 
@@ -258,6 +261,10 @@ if isdirectory(expand($HOME . '/.vim/plugged/'))
     if isdirectory(expand($HOME . '/.vim/plugged/supertab/'))
         let g:SuperTabDefaultCompletionType = "context"
         let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+    endif
+
+    if isdirectory(expand($HOME . '/.vim/plugged/ctrlp.vim/'))
+        let g:ctrlp_custom_ignore = 'env'
     endif
 
 endif
