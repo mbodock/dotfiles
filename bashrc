@@ -198,20 +198,6 @@ export PS1="\u@\h:\w \`parse_git_branch\`\`nonzero_return\`\\$ "
     cd $dest || exit
 }
 
-export MOZILLA_FIVE_HOME=/usr/lib/mozilla
-
-
-# Test cordova
-if [[ -d "$HOME/work/android/" ]]; then
-    export PATH=~/work/android/adt-bundle/sdk/platform-tools:$PATH
-    export PATH=~/work/android/adt-bundle/sdk/tools:$PATH
-    export ANDROID_HOME=/home/marcus/work/android/adt-bundle/sdk
-    export ANDROID_TOOLS=/home/marcus/work/android/adt-bundle/sdk/tools
-    export ANDROID_PLATFORM_TOOLS=/home/marcus/work/android/adt-bundle/sdk/platform-tools
-
-    export JAVA_HOME=/home/marcus/work/java/jdk
-    export ANT_HOME=/usr/bin
-fi
 
 if [[ -d "$HOME/go/" ]]; then
     export PATH="$HOME/go/bin/:$PATH"
@@ -220,6 +206,10 @@ fi
 if [[ -d "/usr/local/opt/coreutils" ]]; then
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="/usr/local/opt/curl/bin:$PATH"
+fi
+
+if [[ -d "$HOME/.local" ]]; then
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
 
@@ -260,3 +250,4 @@ if [[ -d "$HOME/work/" ]]; then
 fi
 
 export LC_ALL="en_US.UTF-8"
+export EDITOR="vim"
