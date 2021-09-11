@@ -115,8 +115,8 @@ nnoremap / /\v
 vnoremap / /\v
 
 " Show invisible chars
-" map <silent> <C-m> :set list!<CR>
-" set listchars=tab:▸\ ,space:·,eol:¬
+map <leader>c :set list!<CR>
+set listchars=tab:▸\ ,space:·,eol:¬
 
 " Always tell me the number of lines changed by a command
 set report=0
@@ -226,6 +226,7 @@ if isdirectory(expand($HOME . '/.vim/plugged/'))
         let g:go_fmt_fail_silently = 1
         let g:go_def_mode='gopls'
         let g:go_info_mode='gopls'
+        let g:go_rename_command = 'gopls'
         let g:go_auto_type_info = 1
         let g:go_textobj_include_function_doc = 0
 
@@ -240,6 +241,8 @@ if isdirectory(expand($HOME . '/.vim/plugged/'))
 
         let g:go_highlight_string_spellcheck = 1
         let g:go_highlight_format_strings = 1
+
+        " let g:go_debug=['lsp']  " Use to debug gopls problems
 
         nnoremap <leader>i :GoSameIdsToggle<cr>
         nnoremap <leader>r :GoRename<cr>
@@ -280,10 +283,16 @@ endif
 hi Normal ctermbg=NONE
 
 
-" Config for JS
 autocmd FileType js setlocal ts=2 sts=2 sw=2
 autocmd FileType yml setlocal ts=2 sts=2 sw=2
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 autocmd FileType jsx setlocal ts=2 sts=2 sw=2
 autocmd FileType html setlocal ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+
+
+autocmd FileType markdown setlocal spell
+autocmd FileType gitcommit setlocal spell
+
+autocmd VimEnter,FocusGained * silent !tmux set status off
+autocmd VimLeave,FocusLost  * silent !tmux set status on
